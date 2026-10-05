@@ -1,9 +1,9 @@
 import argparse
 import sys
 
-from .calculator import calculate
-from .converter import convert
-from .errors import ToolkitError
+from toolkit.calculator import calculate
+from toolkit.converter import convert
+from toolkit.errors import ToolkitError
 
 
 def create_parser() -> argparse.ArgumentParser:

@@ -24,10 +24,6 @@ class MissedOperandError(ToolkitError):
     """Пропущен операнд"""
 
 
-class TwoBinaryOperandError(ToolkitError):
-    """Два бинарных оператора подряд"""
-
-
 class UnknownEdError(ToolkitError):
     """Неизвестная единица"""
 

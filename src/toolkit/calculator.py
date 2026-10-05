@@ -1,9 +1,10 @@
-from .constants import OPERATORS, PRIORITY
-from .errors import (
+from toolkit.constants import OPERATORS, PRIORITY
+from toolkit.errors import (
     IncorrectSymbolError,
     EmptyExpressionError,
     UncorrectExpression,
     DivisionZeroError,
+    MissedOperandError,
 )
 
 
@@ -183,7 +184,7 @@ def validation(tokens: list[str]) -> bool:
         # Бинарные *, /, //, %
         if token in ("*", "/", "//", "%"):
             if need_operand:
-                raise UncorrectExpression("Оператор стоит без операнда")
+                raise MissedOperandError("Оператор стоит без операнда")
 
             need_operand = True
             i += 1
@@ -195,7 +196,7 @@ def validation(tokens: list[str]) -> bool:
         raise UncorrectExpression("Неправильное количество скобок")
 
     if need_operand:
-        raise UncorrectExpression("Выражение заканчивается оператором")
+        raise MissedOperandError("Выражение заканчивается оператором")
 
     return True
 

@@ -1,5 +1,5 @@
-from .constants import TIME, LENGTH, MASS, TEMPERATURE
-from .errors import UnknownEdError, UnusableEdError, AbsZeroError, IncorrectValueError
+from toolkit.constants import TIME, LENGTH, MASS, TEMPERATURE
+from toolkit.errors import UnknownEdError, UnusableEdError, AbsZeroError, IncorrectValueError
 
 
 def type_const(unit: str) -> str:
@@ -54,7 +54,7 @@ def validate(value: float, from_unit: str, to_unit: str) -> tuple[float, str, st
     """
     try:
         value = float(value)
-    except(TypeError, ValueError):
+    except (TypeError, ValueError):
         raise IncorrectValueError(value=f"Некорректное значение: {value}")
 
     from_type = type_const(from_unit.lower())
@@ -99,7 +99,7 @@ def convert(value: float, from_unit: str, to_unit: str) -> float:
     Returns:
         Преобразованное значение в итоговой единице измерения
     """
-    value, from_unit, to_unit = validate(value, from_unit, to_unit)
+    value, from_unit, to_unit = validate(value, from_unit.lower(), to_unit.lower())
 
     # Длина
     if from_unit in LENGTH:
