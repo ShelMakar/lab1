@@ -2,8 +2,8 @@ import pytest
 
 from toolkit.calculator import calculate
 from toolkit.errors import (
-    EmptyExpressionError,
     DivisionZeroError,
+    EmptyExpressionError,
     IncorrectSymbolError,
     MissedOperandError,
     UncorrectExpression,

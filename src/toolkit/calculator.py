@@ -1,10 +1,10 @@
 from toolkit.constants import OPERATORS, PRIORITY
 from toolkit.errors import (
-    IncorrectSymbolError,
-    EmptyExpressionError,
-    UncorrectExpression,
     DivisionZeroError,
+    EmptyExpressionError,
+    IncorrectSymbolError,
     MissedOperandError,
+    UncorrectExpression,
 )
 
 
